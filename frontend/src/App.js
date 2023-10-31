@@ -151,6 +151,18 @@ editItem = (item) => {
 
 // Start by visual effects to viewer
 render() {
+	function imgLoaded(e) {
+		var ifds = UTIF.decode(e.target.response);
+		UTIF.decodeImage(e.target.response, ifds[0])
+		var rgba  = UTIF.toRGBA8(ifds[0]);  // Uint8Array with RGBA pixels
+		console.log(ifds[0].width, ifds[0].height, ifds[0]);
+	  }
+	  
+	  var xhr = new XMLHttpRequest();
+	  xhr.open("GET", "my_image.tif");
+	  xhr.responseType = "arraybuffer";
+	  xhr.onload = imgLoaded;   xhr.send();
+	  
 	return (
 	<main className="content">
 		<h1 className="text-success text-uppercase text-center my-4">
