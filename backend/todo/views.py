@@ -7,7 +7,7 @@ from rest_framework import viewsets
 # import the TodoSerializer from the serializer file
 from .serializers import TodoSerializer
  
-# import the Todo model from the models file
+# import the Todo model from the models file "hello"
 from .models import Todo
  
 # create a class for the Todo model viewsets
